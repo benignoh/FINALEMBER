@@ -1,0 +1,52 @@
+<div class="container">
+
+	{{#link-to 'lista-facturas'}}
+    Lista de facturas
+  	{{/link-to}}
+
+	<br><br>
+	Fecha: {{input type="date" value=model.fecha}}
+
+	<div class="row">
+        <div class="input-field col s12">
+          <label for="folio">Folio</label>
+          {{input id="folio" type="number" value=model.folio}}
+        </div>
+      </div>
+
+	<div class="row">
+        <div class="input-field col s12">
+          <label for="serie">Serie</label>
+          {{input id="serie" type="string" value=model.serie}}
+        </div>
+      </div>
+
+	<div class="row">
+        <div class="input-field col s12">
+          <label for="pago">Forma de pago</label>                  
+          {{input id="pago" type="number" value=model.formaPago}}
+        </div>
+      </div>
+
+	<br><br>
+
+	<div class="col s12">
+			<button class="btn waves-effect waves-light" type="submit" {{action 'crearConcepto'}}>Añadir concepto
+	    	<i class="material-icons right">add</i>
+	 		</button>
+ 		</div>
+
+	{{#each model.conceptos as |concepto|}}
+	  {{form-concepto concepto=concepto}}
+	{{/each}}
+
+	<br><br>
+
+	<div class="col s12 center-align">
+			<button class="btn waves-effect waves-light" type="submit" {{action 'guardar'}}>Guardar
+	    	<i class="material-icons right">save</i>
+	 		</button>
+ 		</div>
+
+ 		<br><br>
+</div>
